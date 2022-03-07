@@ -1,0 +1,77 @@
+﻿@model IEnumerable<JSON_CRUD.Models.PersonModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    @Html.DropDownList("CandidatItems", ViewBag.CandidatItems as SelectList, "Select Candidat");
+    @Html.DropDownList("DepartItems", ViewBag.DepartItems as SelectList, "Select Departement");
+<input type="submit" value="Search" class="btn btn-default" /><a asp-action="Index">Back to Full List</a>
+<table class="table table-striped">
+    <thead class="table-heading">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Civilite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mandat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Circonscription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatePublication)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Civilite)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Prenom)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Mandat)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Circonscription)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Departement)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Candidat)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.DatePublication)
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
+}
+@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })

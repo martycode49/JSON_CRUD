@@ -1,0 +1,32 @@
+[
+  {
+    "Civilite": "M.",
+    "Nom": "CORDIVAL",
+    "Prenom": "Gilles",
+    "Mandat": "Maire",
+    "Circonscription": "Mont-Saint-Père",
+    "Departement": "Aisne",
+    "Candidat": "ARTHAUD Nathalie",
+    "DatePublication": "2022-02-01T00:00:00"
+  },
+  {
+    "Civilite": "Mme",
+    "Nom": "VALLIET",
+    "Prenom": "Odile",
+    "Mandat": "Maire",
+    "Circonscription": "Crupilly",
+    "Departement": "Aisne",
+    "Candidat": "ARTHAUD Nathalie",
+    "DatePublication": "2022-02-01T00:00:00"
+  },
+  {
+    "Civilite": "M.",
+    "Nom": "GUEYRAUD",
+    "Prenom": "Jean-Marie",
+    "Mandat": "Maire",
+    "Circonscription": "Saint-Auban-d\u0027Oze",
+    "Departement": "Hautes-Alpes",
+    "Candidat": "ARTHAUD Nathalie",
+    "DatePublication": "2022-02-01T00:00:00"
+  }
+]

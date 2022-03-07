@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 123,
+    "Name": null,
+    "Surname": null,
+    "Shoes": [ null, null, null ],
+    "Hungry": false,
+    "Age": 0
+  },
+  {
+    "Id": 234,
+    "Name": "n2",
+    "Surname": "s2",
+    "Shoes": [ "shoe5", "shoe6" ],
+    "Hungry": true,
+    "Age": 22
+  },
+  {
+    "Id": 345,
+    "Name": "n3",
+    "Surname": "s3",
+    "Shoes": [ "shoe7", "shoe8", "shoe9" ],
+    "Hungry": false,
+    "Age": 34
+  }
+]
