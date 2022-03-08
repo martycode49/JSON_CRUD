@@ -22,10 +22,11 @@ namespace JSON_CRUD.Controllers
             people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotal.json", "data"));
 
             var items = people.Select(p => p.Candidat).Distinct();
-            ViewBag.CandidatItems = new SelectList(items,"CandidatItems");
+            ViewBag.CandidatItems = new SelectList(items, "Candidat");
             var items2 = people.Select(p => p.Departement).Distinct();
-            ViewBag.DepartItems = new SelectList(items2, "DepartItems");
-
+            ViewBag.DepartItems = new SelectList(items2, "Departement");
+            
+            
             return View(people);
         }
 
@@ -35,13 +36,8 @@ namespace JSON_CRUD.Controllers
             List<PersonModel> people = new List<PersonModel>();
             JSONReadWrite readWrite = new JSONReadWrite();
             people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotal.json", "data"));
-            var key = ViewBag.CandidatItems;
-
-            IEnumerable<PersonModel> person = people.Where(
-                p => p.Candidat == personModel.Candidat 
-                && p.Departement == personModel.Departement);
-
-            return View(person);
+            //Console.WriteLine(ViewBag.CandidatItems); 
+            return View(people);
         }
 
         [HttpPost]
