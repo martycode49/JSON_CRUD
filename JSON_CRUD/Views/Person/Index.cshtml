@@ -8,9 +8,14 @@
     <h2>Index</h2>
     @using (Html.BeginForm("Index", "Person", FormMethod.Post))
     {
-        @Html.DropDownList("CandidatItems", (IEnumerable<SelectListItem>)ViewBag.CandidatItems as SelectList, "Select Candidat");
-        @Html.DropDownList("DepartItems", (IEnumerable<SelectListItem>)ViewBag.DepartItems as SelectList, "Select Departement");
-        <input type="submit" value="Search" class="btn btn-primary" /><a asp-action="Index">Back to Full List</a>
+        //@Html.DropDownList("CandidatItems", (IEnumerable<SelectListItem>)ViewBag.CandidatItems as SelectList, "Select Candidat");
+        ///@Html.DropDownList("DepartItems", (IEnumerable<SelectListItem>)ViewBag.DepartItems as SelectList, "Select Departement");
+        <select id="cos" name="alma[]" multiple="multiple">
+            <option value="ARTHAUD Nathalie">ARTHAUD Nathalie</option>
+            <option value="ASSELINEAU François">ASSELINEAU François</option>
+        </select>
+        <input id="yaz" name="yaz" type="text" />
+        <button type="submit" class="btn btn-primary">Search</button><a asp-action="Index">Back to Full List</a>
         <table class="table table-striped">
             <thead class="table-heading">
                 <tr>

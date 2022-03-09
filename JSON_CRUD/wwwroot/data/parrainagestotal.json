@@ -28,5 +28,15 @@
     "Departement": "Hautes-Alpes",
     "Candidat": "ARTHAUD Nathalie",
     "DatePublication": "2022-02-01T00:00:00"
+  },
+  {
+    "Civilite": "Mme",
+    "Nom": "FINIELS",
+    "Prenom": "Martine",
+    "Mandat": "Maire",
+    "Circonscription": "Vernoux-en-Vivarais",
+    "Departement": "Ardèche",
+    "Candidat": "HIDALGO Anne",
+    "DatePublication": "2022-02-01T00:00:00"
   }
 ]

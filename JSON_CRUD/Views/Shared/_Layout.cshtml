@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <title>@ViewBag.Title</title>
+    <script type="text/javascript">
+        $(function () {
+            $("#cos").select2({ placeholder: "Select", allowClear: false, width: "200" });
+            $('#cos').on('change', function (e) {
+                $('#yaz').val($(this).val());
+            });
+        });
+    </script>
 </head>
 <body>
     <div>

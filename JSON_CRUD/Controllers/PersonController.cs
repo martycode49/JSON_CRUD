@@ -15,7 +15,7 @@ namespace JSON_CRUD.Controllers
     public class PersonController : Controller
     {
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
             List<PersonModel> people = new List<PersonModel>();
             JSONReadWrite readWrite = new JSONReadWrite();
@@ -30,14 +30,29 @@ namespace JSON_CRUD.Controllers
             return View(people);
         }
 
+        //[HttpPost]
+        //public IActionResult Index(PersonModel personModel)
+        //{
+        //    List<PersonModel> people = new List<PersonModel>();
+        //    JSONReadWrite readWrite = new JSONReadWrite();
+        //    people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotal.json", "data"));
+        //    //Console.WriteLine(ViewBag.CandidatItems); 
+        //    return View(people);
+        //}
+
         [HttpPost]
-        public IActionResult Index(PersonModel personModel)
+        public ActionResult Index(string yaz)
         {
+            string[] candidats = yaz.Split(',');
             List<PersonModel> people = new List<PersonModel>();
             JSONReadWrite readWrite = new JSONReadWrite();
             people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotal.json", "data"));
-            //Console.WriteLine(ViewBag.CandidatItems); 
-            return View(people);
+            var slider = from v in people
+                            .Where(c => candidats.Contains(c.Candidat))
+                            .Take(50)
+                            .OrderBy(c => c.Candidat)
+                         select v;
+            return View("Index",slider);
         }
 
         [HttpPost]
