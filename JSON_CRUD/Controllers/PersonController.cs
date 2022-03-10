@@ -2,13 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using JSON_CRUD.Models;
-using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.DotNet.PlatformAbstractions;
-using Microsoft.Extensions.Hosting;
 using System.IO;
 using Newtonsoft.Json;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace JSON_CRUD.Controllers
 {
@@ -19,56 +15,35 @@ namespace JSON_CRUD.Controllers
         {
             List<PersonModel> people = new List<PersonModel>();
             JSONReadWrite readWrite = new JSONReadWrite();
-            people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotal.json", "data"));
+            people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotalGROS.json", "data"));
 
-            var items = people.Select(p => p.Candidat).Distinct();
-            ViewBag.CandidatItems = new SelectList(items, "Candidat");
-            var items2 = people.Select(p => p.Departement).Distinct();
-            ViewBag.DepartItems = new SelectList(items2, "Departement");
-            
-            
+            var items = people.Select(p => p.Candidat).Distinct().ToList();
+
+            ViewBag.CandidatItems = items;
+            ViewBag.CountCandidat = people.Count();
             return View(people);
         }
-
-        //[HttpPost]
-        //public IActionResult Index(PersonModel personModel)
-        //{
-        //    List<PersonModel> people = new List<PersonModel>();
-        //    JSONReadWrite readWrite = new JSONReadWrite();
-        //    people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotal.json", "data"));
-        //    //Console.WriteLine(ViewBag.CandidatItems); 
-        //    return View(people);
-        //}
 
         [HttpPost]
         public ActionResult Index(string yaz)
         {
+            if (yaz == null) return View();
             string[] candidats = yaz.Split(',');
             List<PersonModel> people = new List<PersonModel>();
             JSONReadWrite readWrite = new JSONReadWrite();
-            people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotal.json", "data"));
+            people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotalGROS.json", "data"));
+            
+            // List all candidats inside Json file
+            var items = people.Select(p => p.Candidat).Distinct().ToList();
+            ViewBag.CandidatItems = items;
+
             var slider = from v in people
                             .Where(c => candidats.Contains(c.Candidat))
                             .Take(50)
                             .OrderBy(c => c.Candidat)
                          select v;
+            ViewBag.CountCandidat = slider.Count();
             return View("Index",slider);
-        }
-
-        [HttpPost]
-        public IActionResult Delete(string name)
-        {
-            List<PersonModel> people = new List<PersonModel>();
-            JSONReadWrite readWrite = new JSONReadWrite();
-            people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotal.json", "data"));
-
-            PersonModel toRemove = (PersonModel)people.Where(x => x.Nom == name);
-            people.Remove(toRemove);
-
-            string jSONString = JsonConvert.SerializeObject(people);
-            readWrite.Write("parrainagestotal.json", "data", jSONString);
-
-            return RedirectToAction("index", "Person");
         }
     }
 
@@ -87,7 +62,7 @@ namespace JSON_CRUD.Controllers
 
             string jsonResult;
 
-            using (StreamReader streamReader = new StreamReader(path))
+            using (StreamReader streamReader = new StreamReader(path,System.Text.Encoding.UTF8))
             {
                 jsonResult = streamReader.ReadToEnd();
             }

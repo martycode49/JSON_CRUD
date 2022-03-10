@@ -4,81 +4,80 @@
     ViewData["Title"] = "Index";
 }
 
+
 <div class="container">
     <h2>Index</h2>
     @using (Html.BeginForm("Index", "Person", FormMethod.Post))
     {
-        //@Html.DropDownList("CandidatItems", (IEnumerable<SelectListItem>)ViewBag.CandidatItems as SelectList, "Select Candidat");
-        ///@Html.DropDownList("DepartItems", (IEnumerable<SelectListItem>)ViewBag.DepartItems as SelectList, "Select Departement");
-        <select id="cos" name="alma[]" multiple="multiple">
-            <option value="ARTHAUD Nathalie">ARTHAUD Nathalie</option>
-            <option value="ASSELINEAU François">ASSELINEAU François</option>
+    <select id="cos" name="alma[]" multiple="multiple">
+    @foreach (var item in ViewBag.CandidatItems)
+    {
+    <option value="@item">@item</option>
+    }
         </select>
         <input id="yaz" name="yaz" type="text" />
-        <button type="submit" class="btn btn-primary">Search</button><a asp-action="Index">Back to Full List</a>
-        <table class="table table-striped">
-            <thead class="table-heading">
+        <button type="submit" class="btn btn-primary">Search</button><a asp-action="Index">  | Back to Full List</a>
+    }
+<p>Total candidats : @ViewBag.CountCandidat</p>
+    <table class="table table-striped">
+        <thead class="table-heading">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Civilite)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prenom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mandat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Circonscription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Departement)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Candidat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DatePublication)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Civilite)
+                        @Html.DisplayFor(modelItem => item.Civilite)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Nom)
+                        @Html.DisplayFor(modelItem => item.Nom)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Prenom)
+                        @Html.DisplayFor(modelItem => item.Prenom)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Mandat)
+                        @Html.DisplayFor(modelItem => item.Mandat)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Circonscription)
+                        @Html.DisplayFor(modelItem => item.Circonscription)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Departement)
+                        @Html.DisplayFor(modelItem => item.Departement)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Candidat)
+                        @Html.DisplayFor(modelItem => item.Candidat)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.DatePublication)
+                        @Html.DisplayFor(modelItem => item.DatePublication)
                     </th>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <th>
-                            @Html.DisplayFor(modelItem => item.Civilite)
-                        </th>
-                        <th>
-                            @Html.DisplayFor(modelItem => item.Nom)
-                        </th>
-                        <th>
-                            @Html.DisplayFor(modelItem => item.Prenom)
-                        </th>
-                        <th>
-                            @Html.DisplayFor(modelItem => item.Mandat)
-                        </th>
-                        <th>
-                            @Html.DisplayFor(modelItem => item.Circonscription)
-                        </th>
-                        <th>
-                            @Html.DisplayFor(modelItem => item.Departement)
-                        </th>
-                        <th>
-                            @Html.DisplayFor(modelItem => item.Candidat)
-                        </th>
-                        <th>
-                            @Html.DisplayFor(modelItem => item.DatePublication)
-                        </th>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            }
+        </tbody>
+    </table>
 </div>

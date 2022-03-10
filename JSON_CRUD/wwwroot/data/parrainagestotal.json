@@ -4,7 +4,7 @@
     "Nom": "CORDIVAL",
     "Prenom": "Gilles",
     "Mandat": "Maire",
-    "Circonscription": "Mont-Saint-P�re",
+    "Circonscription": "Mont-Saint-Père",
     "Departement": "Aisne",
     "Candidat": "ARTHAUD Nathalie",
     "DatePublication": "2022-02-01T00:00:00"
@@ -24,7 +24,7 @@
     "Nom": "GUEYRAUD",
     "Prenom": "Jean-Marie",
     "Mandat": "Maire",
-    "Circonscription": "Saint-Auban-d\u0027Oze",
+    "Circonscription": "Saint-Auban-d'Euze",
     "Departement": "Hautes-Alpes",
     "Candidat": "ARTHAUD Nathalie",
     "DatePublication": "2022-02-01T00:00:00"
@@ -35,8 +35,28 @@
     "Prenom": "Martine",
     "Mandat": "Maire",
     "Circonscription": "Vernoux-en-Vivarais",
-    "Departement": "Ard�che",
+    "Departement": "Ardèche",
     "Candidat": "HIDALGO Anne",
     "DatePublication": "2022-02-01T00:00:00"
+  },
+  {
+    "Civilite": "M.",
+    "Nom": "BOLLINNE",
+    "Prenom": "Hervé",
+    "Mandat": "Maire",
+    "Circonscription": "Bertricourt",
+    "Departement": "Aisne",
+    "Candidat": "ASSELINEAU François",
+    "DatePublication": "2022-02-03T00:00:00"
+  },
+  {
+    "Civilite": "M.",
+    "Nom": "BOUDEELE",
+    "Prenom": "Jean-Michel",
+    "Mandat": "Maire",
+    "Circonscription": "Le Plessier-Huleu",
+    "Departement": "Aisne",
+    "Candidat": "ASSELINEAU François",
+    "DatePublication": "2022-02-03T00:00:00"
   }
 ]
