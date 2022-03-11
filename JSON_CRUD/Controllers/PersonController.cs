@@ -15,7 +15,7 @@ namespace JSON_CRUD.Controllers
         {
             List<PersonModel> people = new List<PersonModel>();
             JSONReadWrite readWrite = new JSONReadWrite();
-            people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotalGROS.json", "data"));
+            people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotal.json", "data"));
 
             var items = people.Select(p => p.Candidat).Distinct().ToList();
 
@@ -31,7 +31,7 @@ namespace JSON_CRUD.Controllers
             string[] candidats = yaz.Split(',');
             List<PersonModel> people = new List<PersonModel>();
             JSONReadWrite readWrite = new JSONReadWrite();
-            people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotalGROS.json", "data"));
+            people = JsonConvert.DeserializeObject<List<PersonModel>>(readWrite.Read("parrainagestotal.json", "data"));
             
             // List all candidats inside Json file
             var items = people.Select(p => p.Candidat).Distinct().ToList();

@@ -32,7 +32,7 @@ namespace JSON_CRUD
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Person}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

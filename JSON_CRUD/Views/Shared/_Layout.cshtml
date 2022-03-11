@@ -14,20 +14,45 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $("#cos").select2({ placeholder: "Select", allowClear: false, width: "200" });
-            $('#cos').on('change', function (e) {
-                $('#yaz').val($(this).val());
+        <script type="text/javascript">
+            $(function () {
+                $("#cos").select2({ placeholder: "Select", allowClear: false, width: "200" });
+                $('#cos').on('change', function (e) {
+                    $('#yaz').val($(this).val());
+                });
             });
-        });
-    </script>
+        </script>
     <!-- end JS-->
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <!-- menu NAV-->
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-6">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Mon projet</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Person" asp-action="Index">Person</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">ChartJS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- menu NAV-->
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
     </div>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
